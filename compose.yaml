@@ -1,0 +1,7 @@
+services:
+  backend:
+    build: ../MEOW-backend
+    environment:
+      - RUST_LOG="info"
+    ports:
+      - "3000:3000"
