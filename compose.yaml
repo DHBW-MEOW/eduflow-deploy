@@ -1,7 +1,7 @@
 services:
   backend:
-    build: ../MEOW-backend
+    image: "ghcr.io/dhbw-meow/eduflow-backend:latest"
     environment:
-      - RUST_LOG="info"
+      - RUST_LOG=INFO
     ports:
       - "3000:3000"
