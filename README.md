@@ -8,8 +8,7 @@ Very simple, just run:
 To start it in detached mode:
 `docker compose up -d`
 
-## Configurating
-Changing the URLs on which the server is running:
+## Configuring the URL
 
 We have to differentiate between two URLs:
 
@@ -26,6 +25,6 @@ The following locations need to be modified if changing the URL:
 
 Inside api_endpoint.txt: here the full backend-url is required (e.g. https://api.localhost) it is read by the frontend.
 
-Inside compose.yaml: In the backend section the env-variable FRONTEND_CORS_URL has to be set to the frontend-url, it is read by the backend and configures CORS.
+Inside compose.yaml: In the backend section the env-variable FRONTEND_CORS_URL has to be set to the frontend-url (e.g. https://localhost), it is read by the backend and configures CORS.
 
 Inside Caddyfile: Here you can set the frontend and backend-url individually, this is used by the reverse proxy and determines the URLs.
