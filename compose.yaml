@@ -1,13 +1,36 @@
 services:
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+
+    ports:
+      - 80:80
+      - 443:443
+
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+
   backend:
     image: "ghcr.io/dhbw-meow/eduflow-backend:latest"
+    container_name: backend
+    restart: unless-stopped
+
     environment:
       - RUST_LOG=INFO
-    ports:
-      - "3000:3000"
+      - FRONTEND_CORS_URL=https://localhost
     volumes:
       - app_data:/app/data
 
+  frontend:
+    image: "ghcr.io/dhbw-meow/eduflow-frontend:latest"
+    container_name: frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+    volumes:
+      - ./api_endpoint.txt:/usr/share/nginx/html/api_endpoint.txt
 
 volumes:
   app_data:
