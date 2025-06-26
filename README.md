@@ -17,7 +17,7 @@ We have to differentiate between two URLs:
  - frontend-url (default: https://localhost)
  - backend-url (default: https://api.localhost)
 
-You can change those URLs in the .env file, which is self explanatory.
+You can change those URLs in the .env file, which is self explanatory. (replace every occurence of localhost with your own domain)
 
 If you also would like to change the ports, you have to add them only to the FRONTEND_CORS_URL and BACKEND_URL variable, additionally you have to change the ports (the ports before the colon x:80 and x:443 (change the x)) in the compose file in the caddy section. 
 
