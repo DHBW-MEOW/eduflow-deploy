@@ -1,7 +1,7 @@
-api.localhost {
+{$BACKEND_DOMAIN:api.locahost} {
     reverse_proxy backend:3000
 }
 
-localhost {
+{$FRONTEND_DOMAIN:localhost} {
     reverse_proxy frontend:80
 }

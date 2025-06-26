@@ -1,0 +1,1 @@
+envsubst < /usr/share/nginx/html/api_endpoint_template.txt > /usr/share/nginx/html/api_endpoint.txt

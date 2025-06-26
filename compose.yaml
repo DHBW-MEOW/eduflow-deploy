@@ -8,6 +8,9 @@ services:
       - 80:80
       - 443:443
 
+    env_file:
+      - ./.env
+
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
 
@@ -18,7 +21,8 @@ services:
 
     environment:
       - RUST_LOG=INFO
-      - FRONTEND_CORS_URL=https://localhost
+      - FRONTEND_CORS_URL=${FRONTEND_CORS_URL}
+    
     volumes:
       - app_data:/app/data
 
@@ -29,8 +33,15 @@ services:
     depends_on:
       - backend
 
+    env_file:
+      - ./.env
+
+    post_start:
+      - command: ["sh", "-c", "/generate_endpoint_data.sh"]
+
     volumes:
-      - ./api_endpoint.txt:/usr/share/nginx/html/api_endpoint.txt
+      - ./api_endpoint_template.txt:/usr/share/nginx/html/api_endpoint_template.txt
+      - ./generate_endpoint_data.sh:/generate_endpoint_data.sh
 
 volumes:
   app_data:
