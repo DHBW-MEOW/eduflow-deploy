@@ -10,6 +10,11 @@ To start it in detached mode:
 
 (requires root, because it uses port 80 and 443)
 
+By default it will start a https webserver at https://localhost
+If you are using self-signed certificates (as per default), please make sure to visit https://api.localhost once, in order to trust the certificate (backend requests wont work otherwise).
+
+A webserver at http://localhost will also be started, it redirects to https (same goes for http://api.localhost).
+
 ## Configuring the URL
 
 We have to differentiate between two URLs:
