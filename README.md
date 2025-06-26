@@ -2,7 +2,7 @@
 This repository lets you deploy everything with one command, automatically sets up https using caddy.
 
 ## Starting
-Very simple, just run:
+Run the following to start all services:
 `sudo docker compose up`
 
 To start it in detached mode:
