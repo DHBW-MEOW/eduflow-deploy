@@ -2,6 +2,8 @@
 This repository lets you deploy everything with one command, automatically sets up https using caddy.
 
 ## Starting
+In this case you HAVE to use docker-compose, podman-compose does not support post_start scripts, which is used here.
+
 Run the following to start all services:
 `sudo docker compose up`
 
